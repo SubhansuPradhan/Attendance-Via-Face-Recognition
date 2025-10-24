@@ -46,17 +46,17 @@ It enables capturing faces of people (e.g., students, employees), encoding them,
    ```  
 3. (Optional) Collect face images for your participants by running:  
    ```bash
-   python collect_faces.py
+   python collect_faces.py --name "Your name" --count 50
    ```  
    Follow prompts to capture images for each individual.  
 4. Encode collected faces:  
    ```bash
-   python train_encodings.py
+   python train_encodings.py --dataset dataset --encodings encodings.pkl --model-name VGG-Face
    ```  
    This produces `encodings.pkl` with face encodings of known people.  
 5. Run live recognition to mark attendance:  
    ```bash
-   python recognize.py
+   python recognize.py --encodings encodings.pkl --model-name VGG-Face --tolerance 25 --scale 0.5 --output attendance.csv --detector-backend opencv
    ```  
    A video feed opens; when a known face is detected, the attendance is logged into `attendance.csv`.
 
