@@ -1,6 +1,7 @@
-python collect_faces.py --name "Premanshu Sir" --count 50
+python collect_faces.py --name "Your name" --count 50
 
 python train_encodings.py --dataset dataset --encodings encodings.pkl --model-name VGG-Face
 
 python recognize.py --encodings encodings.pkl --model-name VGG-Face --tolerance 25 --scale 0.5 --output attendance.csv --detector-backend opencv
+
 
